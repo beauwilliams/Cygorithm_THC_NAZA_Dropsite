@@ -1,4 +1,14 @@
-﻿/*!
+﻿/* BEAU: PREVENT LEFT_RIGHT SCROLL ON MOBILE */
+html, body {
+  overflow-x: hidden;
+}
+body {
+  position: relative
+}
+
+
+
+/*!
 * Created by Kroplet (https://www.kroplet.com)
 * The easiest way to create Bootstrap 4 themes.
 */
