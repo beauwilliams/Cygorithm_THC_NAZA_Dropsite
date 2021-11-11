@@ -11,10 +11,19 @@ app.set('view engine', 'ejs');
 // Port website will run on
 // FOR HEROKU
 // https://stackoverflow.com/questions/15693192/heroku-node-js-error-web-process-failed-to-bind-to-port-within-60-seconds-of
-app.listen(process.env.PORT || 8000)
+app.listen(process.env.PORT || 8080)
 
 // *** GET Routes - display pages ***
 // Root Route
 app.get('/', function (req, res) {
     res.render('pages/index');
 });
+
+//ABI route to fetch on frontend
+const path = require('path');
+app.use(express.static(path.join(__dirname, '/public/contracts')))
+
+
+const mint = require('./public/app/mint.js');
+const auth = require('./public/app/auth.js');
+
