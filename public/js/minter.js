@@ -18,12 +18,7 @@
       window.userWalletAddress = accounts[0]
       userWallet.innerText = window.userWalletAddress
       loginButton.innerText = 'Disconnect Wallet'
-      console.log(window.ethereum.networkVersion, 'window.ethereum.networkVersion');
-
-      //if the user is not on binance testnet. reject the transaction..
-      if (window.ethereum.networkVersion !== 97) {return}
       mint();
-
 
       loginButton.removeEventListener('click', loginWithMetaMask)
       setTimeout(() => {
@@ -55,7 +50,7 @@ async function mint() {
                     })
 
 
-                    contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "25000000000000001"})
+                    contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "2500000000001000"})
 
                 // <!-- (err, res) => { console.log('Output: ', res);}); -->
                 console.log(contractInstance);

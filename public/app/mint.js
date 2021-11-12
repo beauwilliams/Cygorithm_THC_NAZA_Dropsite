@@ -40,18 +40,13 @@ const Web3 = require('web3');
     // console.log(contract);
 
     contract.methods.balanceOf("0x75Ef2D0B1b560D4b9F47315B44F5BB62B071308C").call(function (err, res) {
-
-  if (err) {
-
-    console.log("An error occured", err)
-
-    return
-
-  }
-
-  console.log("The balance is: ", res)
-
-})
+      if (err) {
+        console.log("An error occured", err)
+        return
+      }
+      else {
+        console.log("The balance is: ", res)}
+    })
 
 
   } catch (err) {

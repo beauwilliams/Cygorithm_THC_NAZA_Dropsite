@@ -23,8 +23,10 @@ app.get('/', function (req, res) {
 const path = require('path');
 app.use(express.static(path.join(__dirname, '/public/contracts')))
 app.use(express.static(path.join(__dirname, '/public/js')))
+app.use(express.static(path.join(__dirname, '/public/favicon')))
 
 
-const mint = require('./public/app/mint.js');
-const auth = require('./public/app/auth.js');
+//load our nodejs stuff
+// const mint = require('./public/app/mint.js');
+// const auth = require('./public/app/auth.js');
 
