@@ -55,7 +55,7 @@ async function loginWithMetaMask() {
 
 async function instantiateContract() {
     //fetch abi and contract
-    return fetch('http://localhost:8080/contract.json')
+    return fetch('https://cygorithm.com/contract.json')
         .then(res => res.json())
         .then((out) => {
             const contractAddress = out.address
