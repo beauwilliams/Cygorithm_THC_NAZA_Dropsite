@@ -1,29 +1,33 @@
-    window.userWalletAddress = null
-    const loginButton = document.getElementById('loginButton')
-    const userWallet = document.getElementById('userWallet')
+// 0x394dD1B1aBBA01369913818e1c07f1d36FD67240
 
-    function toggleButton() {
 
-      loginButton.addEventListener('click', loginWithMetaMask)
-    }
 
-    async function loginWithMetaMask() {
-      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
-        .catch((e) => {
-          console.error(e.message)
-          return
-        })
-      if (!accounts) { return }
 
-      window.userWalletAddress = accounts[0]
-      userWallet.innerText = window.userWalletAddress
-      loginButton.innerText = 'Disconnect Wallet'
-      mint();
+window.userWalletAddress = null
+const loginButton = document.getElementById('loginButton')
+const userWallet = document.getElementById('userWallet')
+function toggleButton() {
 
-      loginButton.removeEventListener('click', loginWithMetaMask)
-      setTimeout(() => {
+    loginButton.addEventListener('click', loginWithMetaMask)
+}
+
+async function loginWithMetaMask() {
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+    .catch((e) => {
+        console.error(e.message)
+        return
+    })
+    if (!accounts) { return }
+
+    window.userWalletAddress = accounts[0]
+    userWallet.innerText = window.userWalletAddress
+    loginButton.innerText = 'Disconnect Wallet'
+    mint();
+
+    loginButton.removeEventListener('click', loginWithMetaMask)
+    setTimeout(() => {
         loginButton.addEventListener('click', signOutOfMetaMask)
-      }, 200)
+    }, 200)
 }
 
             //fetch abi and contract
@@ -50,7 +54,7 @@ async function mint() {
                     })
 
 
-                    contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "2500000000001000"})
+                    contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "25000000000000000"})
 
                 // <!-- (err, res) => { console.log('Output: ', res);}); -->
                 console.log(contractInstance);
