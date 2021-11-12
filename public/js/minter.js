@@ -12,6 +12,7 @@ contractAbi = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"}
 
 
 
+
 function toggleButton() {
     loginButton.addEventListener('click', loginWithMetaMask)
 }
