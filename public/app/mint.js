@@ -1,6 +1,10 @@
 const fetch = require('cross-fetch');
 const Web3 = require('web3');
 
+// other deployed testnet contract
+// 0x70Edf903aC8DFA24517A53b605211857e5707D1B
+
+
 (async () => {
   try {
     //Parsing our contract atrifacts
@@ -28,12 +32,12 @@ const Web3 = require('web3');
     var contract = new web3.eth.Contract(abi, address);
 
     //create random account for testing
-    const account = web3.eth.accounts.create();
+    // const account = web3.eth.accounts.create();
 
     //prints the account address we created for testing
-    console.log(account);
+    // console.log(account);
     //prints the contract interface fetched from the blockchain
-    console.log(contract);
+    // console.log(contract);
 
     contract.methods.balanceOf("0x75Ef2D0B1b560D4b9F47315B44F5BB62B071308C").call(function (err, res) {
 
@@ -54,6 +58,8 @@ const Web3 = require('web3');
     console.error(err);
   }
 })();
+
+
 
 // async function main() {
 // }
