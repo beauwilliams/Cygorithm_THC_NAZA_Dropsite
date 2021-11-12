@@ -25,14 +25,14 @@ function mintButtons() {
 
 //if the user is not on binance testnet. reject the transaction..
 function correctNetwork() {
-    console.log(window.ethereum.networkVersion)
-    if (window.ethereum.networkVersion == 97) {
+    // console.log(window.ethereum.networkVersion)
+    // if (window.ethereum.networkVersion == 97) {
         return true
-    }
-    else {
-        console.log("wrong network")
-        return false
-    }
+    // }
+    // else {
+        // console.log("wrong network")
+        // return false
+    // }
 }
 
 
