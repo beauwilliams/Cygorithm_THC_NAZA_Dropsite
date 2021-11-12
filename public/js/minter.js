@@ -1,5 +1,5 @@
 // 0x394dD1B1aBBA01369913818e1c07f1d36FD67240
-
+header("Access-Control-Allow-Origin: *");
 //reset the wallet address on page load
 window.userWalletAddress = null
 const loginButton = document.getElementById('loginButton')
