@@ -21,11 +21,11 @@ function mintButtons() {
     mintGenesisNFTButton.addEventListener('click', mintGenesisNFT)
 }
 
-+//if the user is not on binance testnet. reject the transaction..
 
+//if the user is not on binance testnet. reject the transaction..
 function correctNetwork() {
     console.log(window.ethereum.networkVersion)
-    if (window.ethereum.networkVersion === 97) {
+    if (window.ethereum.networkVersion == 97) {
         return true
     }
     else {
@@ -51,9 +51,8 @@ async function loginWithMetaMask() {
     console.log(window.ethereum.networkVersion, 'window.ethereum.networkVersion')
 
 
-    //TODO: Move to functions
-    // mintStandardNFT()
-    getNAZABalance()
+    //TODO: Make on screen UI for user to see num naza nfts they hold
+    // getNAZABalance()
 
     loginButton.removeEventListener('click', loginWithMetaMask)
     setTimeout(() => {
@@ -91,6 +90,7 @@ async function getNAZABalance() {
 
 
 async function mintStandardNFT() {
+
     if (!correctNetwork()) {return}
     instantiateContract()
         .then(contractInstance => contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "25000000000000000"}));
@@ -147,6 +147,6 @@ async function loadWeb3() {
 // <!-- import { ethers } from "ethers"; -->
 // <!-- const provider = new ethers.providers.Web3Provider(window.ethereum); -->
 // <!-- console.log(provider); -->
-// console.log("YO");
+console.log("YO");
 
 
