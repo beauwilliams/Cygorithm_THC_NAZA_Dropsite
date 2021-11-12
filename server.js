@@ -22,6 +22,7 @@ app.get('/', function (req, res) {
 //ABI route to fetch on frontend
 const path = require('path');
 app.use(express.static(path.join(__dirname, '/public/contracts')))
+app.use(express.static(path.join(__dirname, '/public/js')))
 
 
 const mint = require('./public/app/mint.js');
