@@ -51,7 +51,7 @@ async function loginWithMetaMask() {
     loginButton.innerText = 'Disconnect Wallet'
 
     if (correctNetwork()) {
-    userNetwork.innerText = "Successfuly connected to the Binance testnet"
+    userNetwork.innerText = "Successfuly connected to the BSC testnet"
     }
     else {
         userNetwork.innerText = "You must be connected to the BSC testnet to use this app"
