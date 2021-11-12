@@ -5951,7 +5951,8 @@ button.bg-dark:focus {
 
 .pt-7,
 .py-7 {
-  padding-top: 9rem !important; }
+/* BEAU adds padding so dropdown menu on mobile is not overlayed */
+  padding-top: 12rem !important; }
 
 .pr-7,
 .px-7 {
