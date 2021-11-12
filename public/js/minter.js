@@ -3,6 +3,7 @@
 window.userWalletAddress = null
 const loginButton = document.getElementById('loginButton')
 const userWallet = document.getElementById('userWallet')
+const userNetwork = document.getElementById('userNetwork')
 const mintStandardNFTButton = document.getElementById('mintStandardNFT')
 const mintRareNFTButton = document.getElementById('mintRareNFT')
 const mintGenesisNFTButton = document.getElementById('mintGenesisNFT')
@@ -46,9 +47,17 @@ async function loginWithMetaMask() {
 
     window.userWalletAddress = accounts[0]
     userWallet.innerText = window.userWalletAddress
+    // userNetwork.innerText = window.userAddress
     loginButton.innerText = 'Disconnect Wallet'
 
-    console.log(window.ethereum.networkVersion, 'window.ethereum.networkVersion')
+    if (correctNetwork()) {
+    userNetwork.innerText = "Successfuly connected to the Binance testnet"
+    }
+    else {
+        userNetwork.innerText = "You must be connected to the BSC testnet to use this app"
+    }
+
+    // console.log(window.ethereum.networkVersion, 'window.ethereum.networkVersion')
 
 
     //TODO: Make on screen UI for user to see num naza nfts they hold
@@ -111,6 +120,7 @@ async function mintGenesisNFT() {
 function signOutOfMetaMask() {
     window.userWalletAddress = null
     userWallet.innerText = ''
+    userNetwork.innerText = ''
     loginButton.innerText = 'Connect Wallet'
 
     loginButton.removeEventListener('click', signOutOfMetaMask)
