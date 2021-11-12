@@ -22,13 +22,16 @@ function mintButtons() {
 }
 
 +//if the user is not on binance testnet. reject the transaction..
-function checkNetwork(){
-        if (window.ethereum.networkVersion !== 97) {
-        console.log("wrong network")
-        return true
+    function correctNetwork(){
+        console.log(window.ethereum.networkVersion)
+        if (window.ethereum.networkVersion === 97) {
+            return true
+        }
+        else {
+            console.log("wrong network")
+            return false
+        }
     }
-        else { return false }
-}
 
 async function loginWithMetaMask() {
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
@@ -85,16 +88,19 @@ async function getNAZABalance() {
 
 
 async function mintStandardNFT() {
+    if (!correctNetwork()) {return}
     instantiateContract()
         .then(contractInstance => contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "25000000000000000"}));
 }
 
 async function mintRareNFT() {
+    if (!correctNetwork()) {return}
     instantiateContract()
         .then(contractInstance => contractInstance.methods.mintRareNFT().send({from: window.userWalletAddress, value: "50000000000000000"}));
 }
 
 async function mintGenesisNFT() {
+    if (!correctNetwork()) {return}
     instantiateContract()
         .then(contractInstance => contractInstance.methods.mintGenesisNFT().send({from: window.userWalletAddress, value: "25000000000000000"}));
 }
@@ -138,6 +144,6 @@ async function loadWeb3() {
 // <!-- import { ethers } from "ethers"; -->
 // <!-- const provider = new ethers.providers.Web3Provider(window.ethereum); -->
 // <!-- console.log(provider); -->
-console.log("YO");
+// console.log("YO");
 
 
