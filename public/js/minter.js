@@ -119,7 +119,7 @@ async function getNAZABalance() {
 
 function processMintTransactionOutput(err, transactionHash) {
     if (err) {
-        alert("Transaction failed. This may have occurred because it was rejected by the user or there was a network error. If the confirm button in the metamask popup is greyed out, reject the transaction and try click the mint button again.")
+        alert("Transaction failed. This may have occurred because it was rejected by the user or there was a network error. If the confirm button in the metamask popup is greyed out, reject the transaction and try click the mint button again. The transaction may have also been rejected due to the NFTs being sold out. Please try again.")
         console.log(err);
     } else {
         alert("Transaction succeeded with hash " + transactionHash)
