@@ -116,13 +116,12 @@ async function mintStandardNFT() {
     await instantiateContract()
         .then(contractInstance => contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "25000000000000000"},
             function(err, transactionHash) {
-      if (err) {
-          alert(err)
-        console.log(err);
-        } else {
-        console.log(transactionHash);
-        alert(transactionHash)
-       }}
+                if (err) {
+                    alert("Transaction failed. This may have occurred because it was cancelled or there was a network error. Please try again.")
+                    console.log(err);
+                } else {
+                    alert("Transaction succeeded with hash " + transactionHash)
+                }}
         ));
 }
 
