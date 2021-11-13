@@ -63,7 +63,7 @@ async function loginWithMetaMask() {
     loginButton.innerText = 'Disconnect Wallet'
 
     if (correctNetwork()) {
-    userNetwork.innerText = "Successfuly connected to the BSC testnet.."
+    userNetwork.innerText = "Successfuly connected to the BSC testnet"
     }
     else {
         userNetwork.innerText = "You must be connected to the BSC testnet to use this app"
@@ -113,8 +113,8 @@ async function getNAZABalance() {
 async function mintStandardNFT() {
     if (!hasMetamask()) { return }
     if (!correctNetwork()) {return}
-    instantiateContract()
-        .then(contractInstance => contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "25000000000000000", gas: 10000000}));
+    await instantiateContract()
+        .then(contractInstance => contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "25000000000000000"}));
 }
 
 async function mintRareNFT() {
