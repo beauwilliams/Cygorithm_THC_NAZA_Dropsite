@@ -89,7 +89,7 @@ async function instantiateContract() {
             // const contractAddress = out.address
             // const abi = out.abi;
             // <!-- const contractInstance = window.ethereum.Contract(ABI); -->
-            const contractInstance = new myWeb3.eth.Contract(contractAbi,contractAddress)
+            const contractInstance = new window.web3.eth.Contract(contractAbi,contractAddress)
             // console.log(contractInstance)
             return contractInstance
         // }).catch(err => console.error(err))
@@ -153,10 +153,10 @@ window.addEventListener('DOMContentLoaded', () => {
 //https://medium.com/valist/how-to-connect-web3-js-to-metamask-in-2020-fee2b2edf58a
 //https://ethereum.stackexchange.com/questions/110913/cannot-connect-web3-within-metamask-browser-on-mobile
 //using web3 provider
-const oldProvider = web3.currentProvider; // keep a reference to metamask provider
-myWeb3 = new Web3(oldProvider);  // now you can use myWeb3 instead of web3
+// const oldProvider = web3.currentProvider; // keep a reference to metamask provider
+// myWeb3 = new Web3(oldProvider);  // now you can use myWeb3 instead of web3
 // myWeb3 = new Web3(window.etheruem);  // now you can use myWeb3 instead of web3
-// window.web3 = new Web3(window.ethereum);
+window.web3 = new Web3(window.ethereum);
 // <!-- myWeb3 = new Web3(window.ethereum);  // now you can use myWeb3 instead of web3 -->
 // <!-- myWeb3 = new Web3(Provider);  // now you can use myWeb3 instead of web3 -->
 // <!-- web3Provider = new Web3(window.ethereum); -->
