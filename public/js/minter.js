@@ -31,20 +31,31 @@ function correctNetwork() {
         return true
     }
     else {
-        console.log("wrong network")
+        alert("You are not connected to the BSC network. If the BSC network has been set up in your Metamask, please switch to it now. If you have not yet set up the BSC network, you may visit chainlist.org to quickly add the network to your wallet!")
         return false
     }
 }
 
+function hasMetamask() {
+        //alert user to install metamask if not installed and return
+    if (!window.ethereum) {
+        alert("Please install MetaMask to use this dApp!")
+        return false
+    }
+    else { return true }
+}
 
+// const Web3 = require("web3");const ethEnabled = () => {  if (window.web3) {    window.web3 = new Web3(window.web3.currentProvider);    window.ethereum.enable();    return true;  }  return false;}
 
 async function loginWithMetaMask() {
+
+    if (!hasMetamask()) { return }
+
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
     .catch((e) => {
         console.error(e.message)
         return
     })
-    if (!accounts) { return }
 
     window.userWalletAddress = accounts[0]
     userWallet.innerText = window.userWalletAddress
@@ -52,7 +63,7 @@ async function loginWithMetaMask() {
     loginButton.innerText = 'Disconnect Wallet'
 
     if (correctNetwork()) {
-    userNetwork.innerText = "Successfuly connected to the BSC testnet.. test.."
+    userNetwork.innerText = "Successfuly connected to the BSC testnet"
     }
     else {
         userNetwork.innerText = "You must be connected to the BSC testnet to use this app"
@@ -100,19 +111,21 @@ async function getNAZABalance() {
 
 
 async function mintStandardNFT() {
-
+    if (!hasMetamask()) { return }
     if (!correctNetwork()) {return}
     instantiateContract()
         .then(contractInstance => contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "25000000000000000"}));
 }
 
 async function mintRareNFT() {
+    if (!hasMetamask()) { return }
     if (!correctNetwork()) {return}
     instantiateContract()
         .then(contractInstance => contractInstance.methods.mintRareNFT().send({from: window.userWalletAddress, value: "50000000000000000"}));
 }
 
 async function mintGenesisNFT() {
+    if (!hasMetamask()) { return }
     if (!correctNetwork()) {return}
     instantiateContract()
         .then(contractInstance => contractInstance.methods.mintGenesisNFT().send({from: window.userWalletAddress, value: "25000000000000000"}));
@@ -136,10 +149,14 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
-//TODO: Sort this mess below
+//TODO: Sort this mess below, DOES NOT WORK ON MOBILE DUE TO OLD PROVIDER. NEED TO GET WINDOW.WEB3 WORKING..
+//https://medium.com/valist/how-to-connect-web3-js-to-metamask-in-2020-fee2b2edf58a
+//https://ethereum.stackexchange.com/questions/110913/cannot-connect-web3-within-metamask-browser-on-mobile
 //using web3 provider
 const oldProvider = web3.currentProvider; // keep a reference to metamask provider
 myWeb3 = new Web3(oldProvider);  // now you can use myWeb3 instead of web3
+// myWeb3 = new Web3(window.etheruem);  // now you can use myWeb3 instead of web3
+// window.web3 = new Web3(window.ethereum);
 // <!-- myWeb3 = new Web3(window.ethereum);  // now you can use myWeb3 instead of web3 -->
 // <!-- myWeb3 = new Web3(Provider);  // now you can use myWeb3 instead of web3 -->
 // <!-- web3Provider = new Web3(window.ethereum); -->
