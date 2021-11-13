@@ -109,19 +109,21 @@ async function getNAZABalance() {
         });
 }
 
+function processMintTransactionOutput(err, transactionHash) {
+    if (err) {
+        alert("Transaction failed. This may have occurred because it was rejected by the user or there was a network error. If the confirm button in the metamask popup is greyed out, reject the transaction and try click the mint button again.")
+        console.log(err);
+    } else {
+        alert("Transaction succeeded with hash " + transactionHash)
+    }
+}
 
 async function mintStandardNFT() {
     if (!hasMetamask()) { return }
     if (!correctNetwork()) {return}
     await instantiateContract()
         .then(contractInstance => contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "25000000000000000"},
-            function(err, transactionHash) {
-                if (err) {
-                    alert("Transaction failed. This may have occurred because it was cancelled or there was a network error. Please try again.")
-                    console.log(err);
-                } else {
-                    alert("Transaction succeeded with hash " + transactionHash)
-                }}
+        processMintTransactionOutput(err,transactionHash)
         ));
 }
 
@@ -129,14 +131,31 @@ async function mintRareNFT() {
     if (!hasMetamask()) { return }
     if (!correctNetwork()) {return}
     instantiateContract()
-        .then(contractInstance => contractInstance.methods.mintRareNFT().send({from: window.userWalletAddress, value: "50000000000000000"}));
+        .then(contractInstance => contractInstance.methods.mintRareNFT().send({from: window.userWalletAddress, value: "50000000000000000"},
+            function(err, transactionHash) {
+                if (err) {
+                    alert("Transaction failed. This may have occurred because it was rejected by the user or there was a network error. If the confirm button in the metamask popup is greyed out, reject the transaction and try click the mint button again.")
+                    console.log(err);
+                } else {
+                    alert("Transaction succeeded with hash " + transactionHash)
+                }}
+
+        ));
 }
 
 async function mintGenesisNFT() {
     if (!hasMetamask()) { return }
     if (!correctNetwork()) {return}
     instantiateContract()
-        .then(contractInstance => contractInstance.methods.mintGenesisNFT().send({from: window.userWalletAddress, value: "25000000000000000"}));
+        .then(contractInstance => contractInstance.methods.mintGenesisNFT().send({from: window.userWalletAddress, value: "25000000000000000"},
+                    function(err, transactionHash) {
+                if (err) {
+                    alert("Transaction failed. This may have occurred because it was rejected by the user or there was a network error. If the confirm button in the metamask popup is greyed out, reject the transaction and try click the mint button again.")
+                    console.log(err);
+                } else {
+                    alert("Transaction succeeded with hash " + transactionHash)
+                }}
+));
 }
 
 function signOutOfMetaMask() {
