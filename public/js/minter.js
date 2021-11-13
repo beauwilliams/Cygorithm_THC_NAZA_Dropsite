@@ -114,15 +114,16 @@ async function mintStandardNFT() {
     if (!hasMetamask()) { return }
     if (!correctNetwork()) {return}
     await instantiateContract()
-        .then(contractInstance => contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "25000000000000000"}),
-    function(err, transactionHash) {
+        .then(contractInstance => contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "25000000000000000"},
+            function(err, transactionHash) {
       if (err) {
           alert(err)
         console.log(err);
         } else {
         console.log(transactionHash);
         alert(transactionHash)
-       });
+       }}
+        ));
 }
 
 async function mintRareNFT() {
