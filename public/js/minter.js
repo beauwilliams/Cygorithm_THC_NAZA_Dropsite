@@ -47,6 +47,16 @@ function hasMetamask() {
     else { return true }
 }
 
+function connectedWallet() {
+    //alert user to connect their wallet before minting
+    if (!window.userWalletAddress) {
+        alert("Please connect your wallet first!")
+        return false
+    }
+    else { return true }
+}
+
+
 async function newWeb3Instance() {
     if (window.ethereum) {
         window.web3 = new Web3(window.ethereum);
@@ -130,6 +140,7 @@ function processMintTransactionOutput(err, transactionHash) {
 async function mintStandardNFT() {
     if (!hasMetamask()) { return }
     if (!correctNetwork()) { return }
+    if (!connectedWallet()) { return }
     instantiateContract()
         .then(contractInstance => contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "25000000000000000", gas: 1000000, gasPrice: 12000000000},
             function(err,transactionHash){
@@ -142,6 +153,7 @@ async function mintStandardNFT() {
 async function mintRareNFT() {
     if (!hasMetamask()) { return }
     if (!correctNetwork()) { return }
+    if (!connectedWallet()) { return }
     instantiateContract()
         .then(contractInstance => contractInstance.methods.mintRareNFT().send({from: window.userWalletAddress, value: "50000000000000000", gas: 1000000, gasPrice: 12000000000},
             function(err,transactionHash){
@@ -154,6 +166,7 @@ async function mintRareNFT() {
 async function mintGenesisNFT() {
     if (!hasMetamask()) { return }
     if (!correctNetwork()) { return }
+    if (!connectedWallet()) { return }
     instantiateContract()
         .then(contractInstance => contractInstance.methods.mintGenesisNFT().send({from: window.userWalletAddress, value: "25000000000000000", gas: 1000000, gasPrice: 12000000000},
             function(err,transactionHash){
