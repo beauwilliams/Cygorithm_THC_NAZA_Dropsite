@@ -5744,6 +5744,9 @@ button.bg-dark:focus {
   margin-top: 6rem !important;
   text-align: center !important;}
 
+.custom-6 {
+  margin-top: 6rem !important; }
+
 .mr-6,
 .mx-6 {
   margin-right: 6rem !important; }
@@ -7623,7 +7626,9 @@ body {
 
 /*features-list */
 .features-list {
-  list-style: none; }
+  list-style: none;
+  display: inline;
+  text-align: left; }
   .features-list li {
     float: left;
     width: 50%;
