@@ -143,7 +143,7 @@ async function mintRareNFT() {
     if (!hasMetamask()) { return }
     if (!correctNetwork()) { return }
     instantiateContract()
-        .then(contractInstance => contractInstance.methods.mintRareNFT().send({from: window.userWalletAddress, value: "50000000000000000", gas: 1000000},
+        .then(contractInstance => contractInstance.methods.mintRareNFT().send({from: window.userWalletAddress, value: "50000000000000000", gas: 1000000, gasPrice: web3.toWei(12, 'gwei')},
             function(err,transactionHash){
                 processMintTransactionOutput(err,transactionHash)
             }).catch(err => console.error(err))
