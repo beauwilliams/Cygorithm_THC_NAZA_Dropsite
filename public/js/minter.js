@@ -122,7 +122,7 @@ async function getNAZABalance() {
         .then(contractInstance => {
             contractInstance.methods.balanceOf(window.userWalletAddress).call(function (err, res) {
                 if (err) {
-                    console.log("An error occured", err)
+                    console.log("An error occurred", err)
                     return
                 }
                 console.log("The balance is: ", res)
@@ -136,7 +136,7 @@ function processMintTransactionOutput(err, transactionHash) {
         alert("Transaction failed. This may have occurred because it was rejected by the user or there was a network error. If the confirm button in the metamask popup is greyed out, reject the transaction and try click the mint button again. The transaction may have also been rejected due to the NFTs being sold out. Please try again.")
         console.log(err);
     } else {
-        alert("Success. Transaction awaiting conformation with hash " + transactionHash)
+        alert("Success. Transaction awaiting confirmation with hash " + transactionHash)
     }
 }
 
