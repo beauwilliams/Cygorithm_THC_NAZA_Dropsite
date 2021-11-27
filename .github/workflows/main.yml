@@ -15,3 +15,8 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "cygorithm"
           heroku_email: "beau.williams@icloud.com"
+
+
+name: Check spelling
+uses: check-spelling/check-spelling@v0.0.20-alpha3
+
