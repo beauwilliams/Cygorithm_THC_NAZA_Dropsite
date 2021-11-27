@@ -1,3 +1,3 @@
 # THC NAZA DROPSITE
 
-a pourly speled word
+a poorly spelled word
