@@ -149,7 +149,7 @@ async function mintStandardNFT() {
     if (!correctNetwork()) { return }
     if (!connectedWallet()) { return }
     instantiateContract()
-        .then(contractInstance => contractInstance.methods.mintStandard().send({from: window.userWalletAddress, value: "25000000000000000", gas: 1000000, gasPrice: 12000000000},
+        .then(contractInstance => contractInstance.methods.mintNFT().send({from: window.userWalletAddress, value: "25000000000000000", gas: 1000000, gasPrice: 12000000000},
             function(err,transactionHash){
                 processMintTransactionOutput(err,transactionHash)
             }).catch(err => console.error(err))
@@ -162,7 +162,7 @@ async function mintRareNFT() {
     if (!correctNetwork()) { return }
     if (!connectedWallet()) { return }
     instantiateContract()
-        .then(contractInstance => contractInstance.methods.mintRare().send({from: window.userWalletAddress, value: "50000000000000000", gas: 1000000, gasPrice: 12000000000},
+        .then(contractInstance => contractInstance.methods.mintRareNFT().send({from: window.userWalletAddress, value: "50000000000000000", gas: 1000000, gasPrice: 12000000000},
             function(err,transactionHash){
                 processMintTransactionOutput(err,transactionHash)
             }).catch(err => console.error(err))
@@ -175,7 +175,7 @@ async function mintGenesisNFT() {
     if (!correctNetwork()) { return }
     if (!connectedWallet()) { return }
     instantiateContract()
-        .then(contractInstance => contractInstance.methods.mintGenesis().send({from: window.userWalletAddress, value: "25000000000000000", gas: 1000000, gasPrice: 12000000000},
+        .then(contractInstance => contractInstance.methods.mintGenesisNFT().send({from: window.userWalletAddress, value: "25000000000000000", gas: 1000000, gasPrice: 12000000000},
             function(err,transactionHash){
                 processMintTransactionOutput(err,transactionHash)
             }).catch(err => console.error(err))
