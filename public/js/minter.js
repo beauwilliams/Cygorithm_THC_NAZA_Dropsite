@@ -149,7 +149,7 @@ async function mintStandardNFT() {
     if (!correctNetwork()) { return }
     if (!connectedWallet()) { return }
     instantiateContract()
-        .then(contractInstance => contractInstance.methods.mintNFT().send({from: window.userWalletAddress, value: "250000000000000000", gas: 1000000, gasPrice: 12000000000},
+        .then(contractInstance => contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "250000000000000000", gas: 1000000, gasPrice: 12000000000},
             function(err,transactionHash){
                 processMintTransactionOutput(err,transactionHash)
             }).catch(err => console.error(err))
