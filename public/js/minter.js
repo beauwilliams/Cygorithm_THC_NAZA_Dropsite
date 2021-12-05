@@ -81,6 +81,9 @@ async function loadContract() {
 
 async function loginWithMetaMask() {
 
+    alert("THC NAZA Drop Begins December 10th")
+/*
+
     if (!hasMetamask()) { return }
 
     newWeb3Instance()
@@ -105,7 +108,7 @@ async function loginWithMetaMask() {
     loginButton.removeEventListener('click', loginWithMetaMask)
     setTimeout(() => {
         loginButton.addEventListener('click', signOutOfMetaMask)
-    }, 200)
+    }, 200) */
 }
 
 async function instantiateContract() {
@@ -150,20 +153,22 @@ function processMintTransactionOutput(err, transactionHash) {
 
 
 async function mintStandardNFT() {
-    if (!hasMetamask()) { return }
+    alert("THC NAZA Drop Begins December 10th")
+    /* if (!hasMetamask()) { return }
     if (!correctNetwork()) { return }
     if (!connectedWallet()) { return }
     instantiateContract()
-        .then(contractInstance => contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "250000000000000000", gas: 100000, gasPrice: 12000000000},
+        .then(contractInstance => contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "250000000000000000", gas: 100000, gasPrice: 12000000000 },
             function(err,transactionHash){
                 processMintTransactionOutput(err,transactionHash)
             }).catch(err => console.error(err))
-    );
+    ); */
 }
 
 
 async function mintRareNFT() {
-    if (!hasMetamask()) { return }
+    alert("THC NAZA Drop Begins December 10th")
+    /* if (!hasMetamask()) { return }
     if (!correctNetwork()) { return }
     if (!connectedWallet()) { return }
     instantiateContract()
@@ -171,12 +176,13 @@ async function mintRareNFT() {
             function(err,transactionHash){
                 processMintTransactionOutput(err,transactionHash)
             }).catch(err => console.error(err))
-    );
+    ); */
 }
 
 
 async function mintGenesisNFT() {
-    if (!hasMetamask()) { return }
+    alert("THC NAZA Drop Begins December 10th")
+    /* if (!hasMetamask()) { return }
     if (!correctNetwork()) { return }
     if (!connectedWallet()) { return }
     instantiateContract()
@@ -184,7 +190,7 @@ async function mintGenesisNFT() {
             function(err,transactionHash){
                 processMintTransactionOutput(err,transactionHash)
             }).catch(err => console.error(err))
-    );
+    ); */
 }
 
 function signOutOfMetaMask() {
