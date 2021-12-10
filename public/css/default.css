@@ -19,6 +19,20 @@ div.centerstuff p {
     margin-right: -50%;
     transform: translate(-50%, -50%) }
 
+/* Phishing Banner */
+.url-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: linear-gradient(253.34deg, #04e3fb 11.3%, #1beab2 106.44%);
+    z-index: 5;
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    color: black;
+}
 
 
 /*!
