@@ -144,8 +144,8 @@ function processMintTransactionOutput(err, transactionHash) {
 
 
 async function mintStandardNFT() {
-    alert("THC NAZA Drop Begins Midnight PST")
-    /* if (!hasMetamask()) { return }
+    // alert("THC NAZA Drop Begins Midnight PST")
+    if (!hasMetamask()) { return }
     if (!correctNetwork()) { return }
     if (!connectedWallet()) { return }
     instantiateContract()
@@ -153,7 +153,7 @@ async function mintStandardNFT() {
             function(err,transactionHash){
                 processMintTransactionOutput(err,transactionHash)
             }).catch(err => console.error(err))
-    ); */
+    );
 }
 
 
