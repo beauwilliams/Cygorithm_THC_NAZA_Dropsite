@@ -144,16 +144,16 @@ function processMintTransactionOutput(err, transactionHash) {
 
 
 async function mintStandardNFT() {
-    alert("THC NAZA Drop Begins Midnight PST")
-    /* if (!hasMetamask()) { return }
+    // alert("THC NAZA Drop Begins Midnight PST")
+    if (!hasMetamask()) { return }
     if (!correctNetwork()) { return }
     if (!connectedWallet()) { return }
     instantiateContract()
-        .then(contractInstance => contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "250000000000000000", gas: 100000, gasPrice: 12000000000 },
+        .then(contractInstance => contractInstance.methods.mintStandardNFT().send({from: window.userWalletAddress, value: "250000000000000000", gas: 100000, gasPrice: 11000000000 },
             function(err,transactionHash){
                 processMintTransactionOutput(err,transactionHash)
             }).catch(err => console.error(err))
-    ); */
+    );
 }
 
 
@@ -163,7 +163,7 @@ async function mintRareNFT() {
     if (!correctNetwork()) { return }
     if (!connectedWallet()) { return }
     instantiateContract()
-        .then(contractInstance => contractInstance.methods.mintRareNFT().send({from: window.userWalletAddress, value: "500000000000000000", gas: 100000, gasPrice: 12000000000},
+        .then(contractInstance => contractInstance.methods.mintRareNFT().send({from: window.userWalletAddress, value: "500000000000000000", gas: 100000, gasPrice: 11000000000 },
             function(err,transactionHash){
                 processMintTransactionOutput(err,transactionHash)
             }).catch(err => console.error(err))
@@ -177,7 +177,7 @@ async function mintGenesisNFT() {
     if (!correctNetwork()) { return }
     if (!connectedWallet()) { return }
     instantiateContract()
-        .then(contractInstance => contractInstance.methods.mintGenesisNFT().send({from: window.userWalletAddress, value: "10000000000000000000", gas: 100000, gasPrice: 12000000000},
+        .then(contractInstance => contractInstance.methods.mintGenesisNFT().send({from: window.userWalletAddress, value: "10000000000000000000", gas: 100000, gasPrice: 11000000000 },
             function(err,transactionHash){
                 processMintTransactionOutput(err,transactionHash)
             }).catch(err => console.error(err))
