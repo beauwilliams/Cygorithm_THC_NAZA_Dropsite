@@ -79,7 +79,7 @@ async function loadContract() {
 
 async function loginWithMetaMask() {
 
-    alert("THC NAZA Drop Begins December 10th")
+    alert("THC NAZA Drop Begins Midnight PST")
 /*
 
     if (!hasMetamask()) { return }
@@ -151,7 +151,7 @@ function processMintTransactionOutput(err, transactionHash) {
 
 
 async function mintStandardNFT() {
-    alert("THC NAZA Drop Begins December 10th")
+    alert("THC NAZA Drop Begins Midnight PST")
     /* if (!hasMetamask()) { return }
     if (!correctNetwork()) { return }
     if (!connectedWallet()) { return }
@@ -165,7 +165,7 @@ async function mintStandardNFT() {
 
 
 async function mintRareNFT() {
-    alert("THC NAZA Drop Begins December 10th")
+    alert("THC NAZA Drop Begins Midnight PST")
     /* if (!hasMetamask()) { return }
     if (!correctNetwork()) { return }
     if (!connectedWallet()) { return }
@@ -179,7 +179,7 @@ async function mintRareNFT() {
 
 
 async function mintGenesisNFT() {
-    alert("THC NAZA Drop Begins December 10th")
+    alert("THC NAZA Drop Begins Midnight PST")
     /* if (!hasMetamask()) { return }
     if (!correctNetwork()) { return }
     if (!connectedWallet()) { return }
