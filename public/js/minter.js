@@ -148,8 +148,8 @@ function processMintTransactionOutput(err, transactionHash) {
 }
 
 async function mintStandardNFT() {
-  alert("THC NAZA Drop Begins Midnight PST")
-  /* if (!hasMetamask()) {
+  // alert("THC NAZA Drop Begins Midnight PST")
+  if (!hasMetamask()) {
     return;
   }
   if (!correctNetwork()) {
@@ -173,12 +173,12 @@ async function mintStandardNFT() {
         }
       )
       .catch((err) => console.error(err))
-  ); */
+  );
 }
 
 async function mintRareNFT() {
-  alert("THC NAZA Drop Begins Midnight PST")
-  /* if (!hasMetamask()) {
+  // alert("THC NAZA Drop Begins Midnight PST")
+  if (!hasMetamask()) {
     return;
   }
   if (!correctNetwork()) {
@@ -202,7 +202,7 @@ async function mintRareNFT() {
         }
       )
       .catch((err) => console.error(err))
-  ); */
+  );
 }
 
 /* async function mintGenesisNFT() {
