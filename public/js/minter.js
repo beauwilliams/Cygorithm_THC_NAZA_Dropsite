@@ -166,7 +166,7 @@ async function mintStandardNFT() {
           from: window.userWalletAddress,
           value: "250000000000000000",
           gas: 170000,
-          gasPrice: 12000000000,
+          gasPrice: 14000000000,
         },
         function (err, transactionHash) {
           processMintTransactionOutput(err, transactionHash);
@@ -195,7 +195,7 @@ async function mintRareNFT() {
           from: window.userWalletAddress,
           value: "500000000000000000",
           gas: 170000,
-          gasPrice: 12000000000,
+          gasPrice: 14000000000,
         },
         function (err, transactionHash) {
           processMintTransactionOutput(err, transactionHash);
